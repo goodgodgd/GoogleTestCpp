@@ -1,0 +1,41 @@
+윤찬식
+chansigi@ioacademy.co.kr
+
+Google Test
+
+Visual Studio 2015
+Linux
+
+구글테스트는 소스를 프로젝트 안에 포함해서 정적 라이브러리로 사용
+
+미리 컴파일된 헤더: 헤더를 미리 빌드해서 링크해서 사용
+SDL: 보안 코드? 워닝을 에러로 만들어
+
+포함 경로에 아래 추가
+D:\libs\googletest-release-1.8.0\googletest
+D:\libs\googletest-release-1.8.0\googletest\include
+
+gtest 소스안에
+make 폴더에서 make 하면 리눅스에서 어떻게 쓰는지 볼수 있다.
+scripts/fuse_gtest_files.py를 실행하면 현재 폴더에 gtest 폴더가 생기고
+그안의 소스에 모든 것이 들어있기 때문에 이걸 정적 라이브러리로 사용하면 된다.
+g++ gtest-all.cc -c -I../ -lpthread
+실행하면 gtest-all.o가 생기고
+ar crv gtest.a gtest-all.o
+하면 gtest.a (라이브러리) 가 생긴다.
+
+gtest_main을 추가하려면 컴파일 하고
+ar crv gtest.a gtest-all.o gtest_main.o
+
+21세기 언어
+C -> go: 리눅스 관련 많은 도구들이 go를 통해서 만들어지고 있음
+		apt-get은 C언어, apt는 go로 구현, docker도
+		패턴 매칭 명령어 ag가 빠르다, 기존 grep은 싱글스레드만 지원
+		포맷팅도 (자동으로) 강제한다 괄호 위치 등...
+Java -> kotlin
+objC -> swift
+C++ -> Rust: Mozilla 재단에서 개발, C++은 라이브러리, 엔진 등에 많이 사용되는데 이걸 대체할 언어
+		ripgrep (rest in peace grep): 명령어로는 rg, rust로 구현, 패턴 빠르게 찾아줘
+C++ -> D라는 언어가 먼저 나왔으나 많이 사용되지 않음, C++ 새로운 기능의 테스트 장이 되고 있음
+		
+clang complier 쓰자
