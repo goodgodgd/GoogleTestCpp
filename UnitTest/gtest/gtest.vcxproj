@@ -22,6 +22,7 @@
     <ProjectGuid>{BDEF034E-990A-4AE2-A805-E2A4C958AB83}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>gtest</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -136,8 +137,8 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\libs\googletest-release-1.8.0\googletest\src\gtest-all.cc" />
     <ClCompile Include="..\..\..\..\libs\googletest-release-1.8.0\googletest\src\gtest_main.cc">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

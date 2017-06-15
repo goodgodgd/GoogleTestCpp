@@ -3,9 +3,15 @@
 
 // 테스트 프로그램이 시작할 때 SetUp
 // 테스트 프로그램이 종료하기 전에 TearDown
+// 라이브러리나 전역 객체 셋업해야 할 때
+
+// "5_스위트픽스쳐2" 에서 "static void SetUpTestCase()" 는 
+//	테스트케이스 클래스의 설치/해체를 한번만 하는 것이고
+// 전역 픽스쳐는 전체 프로그램 단위에서 한번씩만 설치/해체 하는 것이다.
 
 #include "gtest/gtest.h"
 
+// ::testing::Environment 이걸 상속한 것을 생성해야 전역 픽스쳐 설치됨
 class TestEnvironment : public ::testing::Environment {
 public:
 	void SetUp() {
@@ -30,10 +36,13 @@ TEST(Sample, foo)
 #endif
 
 //	2) main 함수 => main을 직접 만들 경우
+//	: 전역 픽스쳐를 등록해야 하는 경우, 직접 main을 만드는 것이 좋습니다.
+
 int main(int argc, char** argv)
 {
 	::testing::InitGoogleTest(&argc, argv);
 
+	// 직접 픽스쳐 셋업을 main안에 인라인으로 구현
 	::testing::AddGlobalTestEnvironment(new TestEnvironment);
 
 	return RUN_ALL_TESTS();
