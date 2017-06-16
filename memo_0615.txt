@@ -39,3 +39,10 @@ C++ -> Rust: Mozilla 재단에서 개발, C++은 라이브러리, 엔진 등에 
 C++ -> D라는 언어가 먼저 나왔으나 많이 사용되지 않음, C++ 새로운 기능의 테스트 장이 되고 있음
 		
 clang complier 쓰자
+
+책추천
+TDD, Kent Beck - 어려워
+Effective Unit Testing - 쉽고 좋아
+
+테스트에서 어려운 것
+테스트 대역의 용도를 이해하는 것

@@ -52,30 +52,30 @@ int Image::allocCount = 0;
 */
 
 // 이러한 형태의 코드는 반복되므로 매크로로 만들어보자!
-// 에러나는데...;;;
 
 #define DECLARE_LEAK_TEST()				\
-	static int allocCount;				\
-	void* operator new(size_t size) {	\
-		printf("객체 할당..\n");			\
-		++allocCount;					\
-		return malloc(size);			\
-	}
-
+public:									\
+static int allocCount;					\
+void* operator new(size_t size) {		\
+	printf("객체 할당..\n");				\
+	++allocCount;						\
+	return malloc(size);				\
+}										\
+										\
 void operator delete(void* p, size_t) { \
 		printf("객체 파괴..\n");			\
 		--allocCount;					\
 		free(p);						\
-}									\
+}
 
 #define IMPLEMENT_LEAK_TEST(classname)	\
 	int classname::allocCount = 0;
 
 class Image {
-		DECLARE_LEAK_TEST();
-	};
+	DECLARE_LEAK_TEST();
+};
 
-IMPLEMENT_LEAK_TEST();
+IMPLEMENT_LEAK_TEST(Image);
 
 
 class ImageTest : public ::testing::Test {

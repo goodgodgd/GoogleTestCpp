@@ -4,8 +4,8 @@
 // Timeout => 문제없이 잘 동작하였지만, 사용자가 요구하는 시간을 넘겼을 경우, 실패로 간주한다.
 //	: Google Test에서는 지원하지 않습니다.
 
-#include <Windows.h>					// #include <unistd.h>
-#define delay(sec)		Sleep(sec*1000)	// sleep(sec)
+#include <Windows.h>					// #include <unistd.h>	: 리눅스
+#define delay(sec)		Sleep(sec*1000)	// sleep(sec)			: 리눅스
 #include <time.h>
 
 #include <gtest/gtest.h>
